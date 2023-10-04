@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지오다노</title>
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="lib/jquery-3.7.0.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+        $(function () {
+            $('.depth01 > a').click(function (e) {
+                e.preventDefault()
+                if ($(this).next().css('display') == 'none') {
+                    $('.depth02').slideUp()
+                    $(this).next().slideDown()
+                } else {
+                    $(this).next().slideUp()
+                    $('.depth01 > a').removeClass('on')
+                }
+            })
+            let windowWidth = $(window).width()
+            let menuIconWrap = $('.hamburger_icon');
+            let menuIcon = $('.hamburger_icon span');
+            let headerTop = $('header').offset().top
+            let navTop = $('nav').offset().top
+            $(window).scroll(function () {
+                if (headerTop < $(window).scrollTop()) {
+                    menuIcon.css({
+                        'background-color': '#000',
+                    })
+                    $('nav').css({
+                        'background-color': 'rgba(0, 0, 0, 0.9)',
+                        'color': '#fff'
+                    })
+                    $('header').addClass('on')
+                } else {
+                    menuIcon.css({
+                        'background-color': '#fff',
+                    })
+                    $('nav').css({
+                        'background-color': 'rgba(255, 255, 255, 0.5)',
+                        'color': '#000'
+                    })
+                    $('header').removeClass('on')
+                }
+
+            })
+            $('.top_menu li:nth-child(4)').click(function(){
+                if($('.search_bg').css('display') == 'none') {
+                    $('.search_bg').css({
+                        'display':'flex'
+                    })
+                } else {
+                    $('.search_bg').css({
+                        'display':'none'
+                    })
+                }
+            })
+            $('nav').css('left', -windowWidth)
+            menuIconWrap.click(function () {
+                if ($('nav').offset().left == -windowWidth) {
+                    $('nav').animate({
+                        'left': 0,
+
+
+                    })
+                    menuIconWrap.addClass('on')
+                } else {
+                    $('nav').animate({
+                        'left': '-100%',
+
+
+                    })
+                    menuIconWrap.removeClass('on')
+                }
+            })
+            var swiper = new Swiper(".mySwiper", {
+                pagination: {
+                    el: ".swiper-pagination",
+                    type: "progressbar",
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+
+                },
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+            });
+            var swiper = new Swiper(".list", {
+                slidesPerView: 7,
+                spaceBetween: 20,
+                freeMode: true,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                autoplay: {
+                    delay: 0, //add
+                    disableOnInteraction: false,
+                },
+                speed: 5000,
+            });
+            var swiper = new Swiper(".cont03_list", {
+                slidesPerView: 4,
+                spaceBetween: 20,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+            });
+            var swiper = new Swiper(".cont04_list", {
+                slidesPerView: 4,
+                spaceBetween: 20,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                autoplay: {
+                    delay: 2800,
+                    disableOnInteraction: false,
+                },
+            });
+            var swiper = new Swiper(".cont05_list", {
+                scrollbar: {
+                    el: ".swiper-scrollbar",
+                    //hide: true,
+                },
+                slidesPerView: 3,
+                spaceBetween: 20,
+            });
+        })//jquery end
+    </script>
+</head>
+
+<body>
+    <div class="top_header">
+        <div class="inner">
+            <ul class="brand">
+                <li><a href="#"><img src="img/지오다노/top_logo0.png" alt=""></a></li>
+                <li><a href="#"><img src="img/지오다노/top_logo1.png" alt=""></a></li>
+                <li><a href="#"><img src="img/지오다노/top_logo2.png" alt=""></a></li>
+            </ul><!-- .brand end -->
+            <ul class="top_menu">
+                <li><a href="#">로그인</a></li>
+                <li><a href="#">회원가입</a></li>
+                <li><a href="#">고객센터</a></li>
+                <li><a href="#"><img src="img/아이콘/whitesearch.png" alt=""></a></li>
+                <li><a href="#"><img src="img/아이콘/whitecart.png" alt=""></a></li>
+            </ul><!-- .top_menu end -->
+        </div><!-- .inner end -->
+    </div><!-- .top_header end -->
+    <div class="search_bg">
+        <div class="search_box">
+            <input type="text" placeholder="검색어를 입력하세요.">
+            <button>
+                <img src="img/아이콘/gnb_icon_search.png" alt="">
+            </button>
+        </div>
+    </div><!-- .search end -->
+    <header>
+        <div class="inner">
+            <h1><a href="#"><img src="img/아이콘/logoblack.png" alt=""></a></h1>
+            <!-- <div class="menu_open">
+                <img src="img/아이콘/icons8-메뉴-50.png" alt="">
+            </div> --><!-- .menu_open end -->
+            <div class="hamburger_icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div><!-- .hamburger_icon end -->
+            <!-- <div class="menu_close">
+                <img src="img/아이콘/whitex.png" alt="">
+            </div> --><!-- .menu_close end -->
+            <nav>
+                <!-- <div class="menu_close">
+                    <img src="img/아이콘/icons8-곱하다-48.png" alt="">
+                </div> --><!-- .menu_close end -->
+                <ul class="gnb">
+                    <li class="depth01">
+                        <a href="#">NEW ARRIVALS</a>
+                        <ul class="depth02">
+                            <li><a href="#">MEN</a></li>
+                            <li><a href="#">WOMEN</a></li>
+                        </ul><!-- .depth02 end -->
+                    </li><!-- .depth01 end -->
+                    <li class="depth01">
+                        <a href="#">BEST 30</a>
+                        <ul class="depth02">
+                            <li><a href="#">MEN</a></li>
+                            <li><a href="#">WOMEN</a></li>
+                        </ul><!-- .depth02 end -->
+                    </li><!-- .depth01 end -->
+                    <li class="depth01">
+                        <a href="#">#셔츠$슬랙스</a>
+                        <ul class="depth02">
+                            <li><a href="#">MEN</a></li>
+                            <li><a href="#">WOMEN</a></li>
+                        </ul><!-- .depth02 end -->
+                    </li><!-- .depth01 end -->
+                    <li class="depth01">
+                        <a href="#">#위클리 포커스</a>
+                        <ul class="depth02">
+                            <li><a href="#">MEN</a></li>
+                            <li><a href="#">WOMEN</a></li>
+                        </ul><!-- .depth02 end -->
+                    </li><!-- .depth01 end -->
+                    <li class="depth01">
+                        <a href="#">#FINAL SALE</a>
+                        <ul class="depth02">
+                            <li><a href="#">MEN</a></li>
+                            <li><a href="#">WOMEN</a></li>
+                            <li><a href="#">홈웨어/ACC</a></li>
+                        </ul><!-- .depth02 end -->
+                    </li><!-- .depth01 end -->
+                    <li class="depth01">
+                        <a href="#">MEN</a>
+                        <ul class="depth02">
+                            <li><a href="#">MD'S PICK</a></li>
+                            <li><a href="#">TOPS</a></li>
+                            <li><a href="#">BOTTOM</a></li>
+                            <li><a href="#">OUTER</a></li>
+                            <li><a href="#">ACC</a></li>
+                        </ul><!-- .depth02 end -->
+                    </li><!-- .depth01 end -->
+                    <li class="depth01">
+                        <a href="#">WOMEN</a>
+                        <ul class="depth02">
+                            <li><a href="#">MD'S PICK</a></li>
+                            <li><a href="#">TOPS</a></li>
+                            <li><a href="#">BOTTOM</a></li>
+                            <li><a href="#">OUTER</a></li>
+                            <li><a href="#">ACC</a></li>
+                        </ul><!-- .depth02 end -->
+                    </li><!-- .depth01 end -->
+                    <li class="depth01">
+                        <a href="#">G-MOTION</a>
+                    </li><!-- .depth01 end -->
+                    <li class="depth01">
+                        <a href="#">ESSENTIAL</a>
+                    </li><!-- .depth01 end -->
+                    <li class="depth01">
+                        <a href="#">LAST CHANCE</a>
+                        <ul class="depth02">
+                            <li><a href="#">S</a></li>
+                            <li><a href="#">M</a></li>
+                            <li><a href="#">L</a></li>
+                        </ul><!-- .depth02 end -->
+                    </li><!-- .depth01 end -->
+                    <li class="depth01">
+                        <a href="#">23FW LOOKBOOK</a>
+                    </li><!-- .depth01 end -->
+                    <li class="depth01">
+                        <a href="#">회원 가입 혜택</a>
+                    </li><!-- .depth01 end -->
+                    <li class="depth01">
+                        <a href="#">EVENT</a>
+                    </li><!-- .depth01 end -->
+                    <li class="depth01">
+                        <a href="#">GIO MAGAZINE</a>
+                    </li><!-- .depth01 end -->
+                    <li class="depth01">
+                        <a href="#">실시간리뷰</a>
+                    </li><!-- .depth01 end -->
+                    <li class="depth01">
+                        <a href="#">BRAND</a>
+                        <ul class="depth02">
+                            <li><a href="#">브랜드 소개</a></li>
+                            <li><a href="#">매장 안내</a></li>
+                            <li><a href="#">채용 정보</a></li>
+                        </ul><!-- .depth02 end -->
+                    </li><!-- .depth01 end -->
+                </ul>
+            </nav>
+        </div><!-- .inner end -->
+    </header>
+    <section class="main_visual">
+        <!-- Swiper -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="img/메인비쥬얼/22.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/메인비쥬얼/55.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/메인비쥬얼/3.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/메인비쥬얼/4.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/메인비쥬얼/33.jpg" alt="">
+                </div>
+                <!-- <div class="swiper-slide">
+                    <img src="img/메인비쥬얼/88.jpg" alt="">
+                </div> -->
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section><!-- .main_visual end -->
+    <section class="cont01">
+        <div class="top">
+            <div class="item">
+                <figure>
+                    <img src="img/지오다노/cont01_1.jpg" alt="">
+                </figure>
+                <h3>WOMEN</h3>
+            </div><!-- .item end -->
+            <div class="item">
+                <figure>
+                    <img src="img/지오다노/cont01_2.jpg" alt="">
+                </figure>
+                <h3>MEN</h3>
+            </div><!-- .item end -->
+            <div class="item">
+                <figure>
+                    <img src="img/지오다노/cont01_3.jpg" alt="">
+                </figure>
+                <h3>BEST</h3>
+            </div><!-- .item end -->
+        </div><!-- .top end -->
+        <div class="mid">
+            <div class="left">
+                <figure>
+                    <img src="img/지오다노/cont01_left.jpg" alt="">
+                </figure>
+                <h3>EVENT</h3>
+            </div><!-- .left end -->
+            <div class="right">
+                <figure>
+                    <img src="img/지오다노/cont01_right.jpg" alt="">
+                </figure>
+                <h3>NEW ARRIVALS</h3>
+            </div><!-- .right end -->
+        </div><!-- .mid end -->
+        <div class="bot">
+            <div class="item">
+                <figure>
+                    <img src="img/지오다노/cont01_bot1.jpg" alt="">
+                </figure>
+                <h3>#셔츠&슬랙스</h3>
+            </div><!-- .item end -->
+            <div class="item">
+                <figure>
+                    <img src="img/지오다노/cont01_bot2.jpg" alt="">
+                </figure>
+                <h3>#위클리 포커스</h3>
+            </div><!-- .item end -->
+            <div class="item">
+                <figure>
+                    <img src="img/지오다노/cont01_bot3.jpg" alt="">
+                </figure>
+                <h3>#FINAL SALE</h3>
+            </div><!-- .bot end -->
+    </section><!-- .cont01 end -->
+    <section class="cont02">
+        <div class="inner">
+            <h2>NEW ARRIVALS</h2>
+            <!-- Swiper -->
+            <div class="swiper list">
+                <div class="swiper-wrapper wrapper">
+                    <div class="item swiper-slide">
+                        <figure>
+                            <img src="img/지오다노/ARR/11.jpg" alt="">
+                        </figure>
+                        <div class="txt">
+                            <h3>NEW 차은우 에코레더 목넥 자켓</h3>
+                            <strong>151,200원</strong>
+                        </div><!-- .txt end -->
+                    </div><!-- item end -->
+                    <div class="item swiper-slide">
+                        <figure>
+                            <img src="img/지오다노/ARR/22.jpg" alt="">
+                        </figure>
+                        <div class="txt">
+                            <h3>NEW TR 싱글 블레이저</h3>
+                            <strong>115,200원</strong>
+                        </div><!-- .txt end -->
+                    </div><!-- item end -->
+                    <div class="item swiper-slide">
+                        <figure>
+                            <img src="img/지오다노/ARR/33.jpg" alt="">
+                        </figure>
+                        <div class="txt">
+                            <h3>NEW 차은우 데님 자켓</h3>
+                            <strong>71,800원</strong>
+                        </div><!-- .txt end -->
+                    </div><!-- item end -->
+                    <div class="item swiper-slide">
+                        <figure>
+                            <img src="img/지오다노/ARR/44.jpg" alt="">
+                        </figure>
+                        <div class="txt">
+                            <h3>NEW 풀밴딩 부츠컷 팬츠</h3>
+                            <strong>35,800원</strong>
+                        </div><!-- .txt end -->
+                    </div><!-- item end -->
+                    <div class="item swiper-slide">
+                        <figure>
+                            <img src="img/지오다노/ARR/55.jpg" alt="">
+                        </figure>
+                        <div class="txt">
+                            <h3>NEW TR 클래식 블레이저</h3>
+                            <strong>115,200원</strong>
+                        </div><!-- .txt end -->
+                    </div><!-- item end -->
+                    <div class="item swiper-slide">
+                        <figure>
+                            <img src="img/지오다노/ARR/66.jpg" alt="">
+                        </figure>
+                        <div class="txt">
+                            <h3>케이블 크루넥 가디건</h3>
+                            <strong>62,800원</strong>
+                        </div><!-- .txt end -->
+                    </div><!-- item end -->
+                    <div class="item swiper-slide">
+                        <figure>
+                            <img src="img/지오다노/ARR/77.jpg" alt="">
+                        </figure>
+                        <div class="txt">
+                            <h3>NEW 유틸리티 숏 파카</h3>
+                            <strong>89,800원</strong>
+                        </div><!-- .txt end -->
+                    </div><!-- item end -->
+                    <div class="item swiper-slide">
+                        <figure>
+                            <img src="img/지오다노/ARR/88.jpg" alt="">
+                        </figure>
+                        <div class="txt">
+                            <h3>NEW 브이넥 립 슬림 가디건</h3>
+                            <strong>35,800원</strong>
+                        </div><!-- .txt end -->
+                    </div><!-- item end -->
+                    <div class="item swiper-slide">
+                        <figure>
+                            <img src="img/지오다노/ARR/11.jpg" alt="">
+                        </figure>
+                        <div class="txt">
+                            <h3>NEW 차은우 에코레더 목넥 자켓</h3>
+                            <strong>151,200원</strong>
+                        </div><!-- .txt end -->
+                    </div><!-- item end -->
+                    <div class="item swiper-slide">
+                        <figure>
+                            <img src="img/지오다노/ARR/22.jpg" alt="">
+                        </figure>
+                        <div class="txt">
+                            <h3>NEW TR 싱글 블레이저</h3>
+                            <strong>115,200원</strong>
+                        </div><!-- .txt end -->
+                    </div><!-- item end -->
+                    <div class="item swiper-slide">
+                        <figure>
+                            <img src="img/지오다노/ARR/33.jpg" alt="">
+                        </figure>
+                        <div class="txt">
+                            <h3>NEW 차은우 데님 자켓</h3>
+                            <strong>71,800원</strong>
+                        </div><!-- .txt end -->
+                    </div><!-- item end -->
+                    <div class="item swiper-slide">
+                        <figure>
+                            <img src="img/지오다노/ARR/44.jpg" alt="">
+                        </figure>
+                        <div class="txt">
+                            <h3>NEW 풀밴딩 부츠컷 팬츠</h3>
+                            <strong>35,800원</strong>
+                        </div><!-- .txt end -->
+                    </div><!-- item end -->
+                    <div class="item swiper-slide">
+                        <figure>
+                            <img src="img/지오다노/ARR/55.jpg" alt="">
+                        </figure>
+                        <div class="txt">
+                            <h3>NEW TR 클래식 블레이저</h3>
+                            <strong>115,200원</strong>
+                        </div><!-- .txt end -->
+                    </div><!-- item end -->
+                    <div class="item swiper-slide">
+                        <figure>
+                            <img src="img/지오다노/ARR/66.jpg" alt="">
+                        </figure>
+                        <div class="txt">
+                            <h3>케이블 크루넥 가디건</h3>
+                            <strong>62,800원</strong>
+                        </div><!-- .txt end -->
+                    </div><!-- item end -->
+                    <div class="item swiper-slide">
+                        <figure>
+                            <img src="img/지오다노/ARR/77.jpg" alt="">
+                        </figure>
+                        <div class="txt">
+                            <h3>NEW 유틸리티 숏 파카</h3>
+                            <strong>89,800원</strong>
+                        </div><!-- .txt end -->
+                    </div><!-- item end -->
+                    <div class="item swiper-slide">
+                        <figure>
+                            <img src="img/지오다노/ARR/88.jpg" alt="">
+                        </figure>
+                        <div class="txt">
+                            <h3>NEW 브이넥 립 슬림 가디건</h3>
+                            <strong>35,800원</strong>
+                        </div><!-- .txt end -->
+                    </div><!-- item end -->
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div><!-- .inner end -->
+    </section><!-- .cont02 end -->
+    <section class="cont03">
+        <div class="inner">
+            <div class="box">
+                <div class="title">
+                    <h3>일상을 채우는 새로움</h3>
+                    <h2>23 FALL ITEM</h2>
+                    <P>WITH 한소희</P>
+                    <span>SHOP NOW</span>
+                </div><!-- .title end -->
+                <!-- Swiper -->
+                <div class="swiper cont03_list">
+                    <div class="swiper-wrapper">
+                        <div class="item swiper-slide">
+                            <figure>
+                                <img src="img/지오다노/cont03_1.jpg" alt="">
+                            </figure>
+                            <div class="txt">
+                                <h2>한소희 베이직 슬림 슬랙스</h2>
+                                <h3>셔츠&슬랙스 2장 이상 15%</h3>
+                                <strong>49,800원</strong>
+                            </div><!-- .txt end -->
+                        </div><!-- item end -->
+                        <div class="item swiper-slide">
+                            <figure>
+                                <img src="img/지오다노/cont03_2.jpg" alt="">
+                            </figure>
+                            <div class="txt">
+                                <h2>NEW 한소희 베이직 포플린 셔츠</h2>
+                                <h3>셔츠&슬랙스 2장 이상 15%</h3>
+                                <strong>49,800원</strong>
+                            </div><!-- .txt end -->
+                        </div><!-- item end -->
+                        <div class="item swiper-slide">
+                            <figure>
+                                <img src="img/지오다노/cont03_3.jpg" alt="">
+                            </figure>
+                            <div class="txt">
+                                <h2>한소희 슬림 스트레이트 데님</h2>
+                                <h3>RESTOCK 10% OFF (~8/20)</h3>
+                                <strong>53,800원</strong>
+                            </div><!-- .txt end -->
+                        </div><!-- item end -->
+                        <div class="item swiper-slide">
+                            <figure>
+                                <img src="img/지오다노/cont03_4.jpg" alt="">
+                            </figure>
+                            <div class="txt">
+                                <h2>NEW 한소희 와이드핏 카펜터 데님</h2>
+                                <h3>NEW 10% OFF (~8/27)</h3>
+                                <strong>53,800원</strong>
+                            </div><!-- .txt end -->
+                        </div><!-- item end -->
+                        <div class="item swiper-slide">
+                            <figure>
+                                <img src="img/지오다노/cont03_5.jpg" alt="">
+                            </figure>
+                            <div class="txt">
+                                <h2>한소희 베이직 슬림 슬랙스</h2>
+                                <h3>셔츠&슬랙스 2장 이상 15%</h3>
+                                <strong>49,800원</strong>
+                            </div><!-- .txt end -->
+                        </div><!-- item end -->
+                        <div class="item swiper-slide">
+                            <figure>
+                                <img src="img/지오다노/cont03_6.jpg" alt="">
+                            </figure>
+                            <div class="txt">
+                                <h2>NEW 한소희 베이직 포플린 셔츠</h2>
+                                <h3>셔츠&슬랙스 2장 이상 15%</h3>
+                                <strong>49,800원</strong>
+                            </div><!-- .txt end -->
+                        </div><!-- item end -->
+                        <div class="item swiper-slide">
+                            <figure>
+                                <img src="img/지오다노/cont03_7.jpg" alt="">
+                            </figure>
+                            <div class="txt">
+                                <h2>한소희 슬림 스트레이트 데님</h2>
+                                <h3>RESTOCK 10% OFF (~8/20)</h3>
+                                <strong>53,800원</strong>
+                            </div><!-- .txt end -->
+                        </div><!-- item end -->
+                        <div class="item swiper-slide">
+                            <figure>
+                                <img src="img/지오다노/cont03_8.jpg" alt="">
+                            </figure>
+                            <div class="txt">
+                                <h2>NEW 한소희 와이드핏 카펜터 데님</h2>
+                                <h3>NEW 10% OFF (~8/27)</h3>
+                                <strong>53,800원</strong>
+                            </div><!-- .txt end -->
+                        </div><!-- item end -->
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div><!-- box end -->
+            <div class="box2">
+                <div data-aos="fade-left" class="main_img">
+                    <figure>
+                        <img src="img/지오다노/cont03_main.jpg" alt="">
+                    </figure>
+                    <div class="txt">
+                        <h2>NEW 한소희 와이드핏 데님</h2>
+                        <h3>NEW 10% OFF (~8/27)</h3>
+                        <strong>53,800원</strong>
+                    </div><!-- .txt end -->
+                </div><!-- .main_img end -->
+            </div><!-- .box2 end -->
+        </div><!-- .inner end -->
+    </section><!-- .cont03 end -->
+    <section class="cont04">
+        <div class="inner">
+            <div class="box">
+                <div data-aos="fade-right" class="main_img">
+                    <figure>
+                        <img src="img/지오다노/cont04_main.jpg" alt="">
+                    </figure>
+                    <div class="txt">
+                        <h2>NEW 차은우 코튼 옥스포드 레귤러핏 셔츠</h2>
+                        <h3>셔츠&슬랙스 2장 이상 15%</h3>
+                        <strong>39,800원</strong>
+                    </div><!-- .txt end -->
+                </div><!-- .main_img end -->
+            </div><!-- .box end -->
+            <div class="box2">
+                <div class="title">
+                    <h3>일상을 채우는 새로움</h3>
+                    <h2>23 FALL ITEM</h2>
+                    <P>WITH 차은우</P>
+                    <span>SHOP NOW</span>
+                </div><!-- .title end -->
+                <!-- Swiper -->
+                <div class="swiper cont04_list">
+                    <div class="swiper-wrapper">
+                        <div class="item swiper-slide">
+                            <figure>
+                                <img src="img/지오다노/cont04_1.jpg" alt="">
+                            </figure>
+                            <div class="txt">
+                                <h2>NEW 차은우 카펜터 데님 팬츠</h2>
+                                <h3>NEW 10% OFF (~8/27)</h3>
+                                <strong>53,800원</strong>
+                            </div><!-- .txt end -->
+                        </div><!-- item end -->
+                        <div class="item swiper-slide">
+                            <figure>
+                                <img src="img/지오다노/cont04_2.jpg" alt="">
+                            </figure>
+                            <div class="txt">
+                                <h2>NEW 차은우 코튼 트윌 카펜터 팬츠</h2>
+                                <h3>NEW 10% OFF (~8/27)</h3>
+                                <strong>44,800원</strong>
+                            </div><!-- .txt end -->
+                        </div><!-- item end -->
+                        <div class="item swiper-slide">
+                            <figure>
+                                <img src="img/지오다노/cont04_3.jpg" alt="">
+                            </figure>
+                            <div class="txt">
+                                <h2>NEW 차은우 코튼 트윌 카고 팬츠</h2>
+                                <h3>NEW 10% OFF (~8/27)</h3>
+                                <strong>44,800원</strong>
+                            </div><!-- .txt end -->
+                        </div><!-- item end -->
+                        <div class="item swiper-slide">
+                            <figure>
+                                <img src="img/지오다노/cont04_4.jpg" alt="">
+                            </figure>
+                            <div class="txt">
+                                <h2>차은우 와이드핏 히든밴딩 슬랙스</h2>
+                                <h3>셔츠&슬랙스 2장 이상 15%</h3>
+                                <strong>39,800원</strong>
+                            </div><!-- .txt end -->
+                        </div><!-- item end -->
+                        <div class="item swiper-slide">
+                            <figure>
+                                <img src="img/지오다노/cont04_5.jpg" alt="">
+                            </figure>
+                            <div class="txt">
+                                <h2>NEW 차은우 카펜터 데님 팬츠</h2>
+                                <h3>NEW 10% OFF (~8/27)</h3>
+                                <strong>53,800원</strong>
+                            </div><!-- .txt end -->
+                        </div><!-- item end -->
+                        <div class="item swiper-slide">
+                            <figure>
+                                <img src="img/지오다노/cont04_6.jpg" alt="">
+                            </figure>
+                            <div class="txt">
+                                <h2>NEW 차은우 코튼 트윌 카펜터 팬츠</h2>
+                                <h3>NEW 10% OFF (~8/27)</h3>
+                                <strong>44,800원</strong>
+                            </div><!-- .txt end -->
+                        </div><!-- item end -->
+                        <div class="item swiper-slide">
+                            <figure>
+                                <img src="img/지오다노/cont04_7.jpg" alt="">
+                            </figure>
+                            <div class="txt">
+                                <h2>NEW 차은우 코튼 트윌 카고 팬츠</h2>
+                                <h3>NEW 10% OFF (~8/27)</h3>
+                                <strong>44,800원</strong>
+                            </div><!-- .txt end -->
+                        </div><!-- item end -->
+                        <div class="item swiper-slide">
+                            <figure>
+                                <img src="img/지오다노/cont04_8.jpg" alt="">
+                            </figure>
+                            <div class="txt">
+                                <h2>차은우 와이드핏 히든밴딩 슬랙스</h2>
+                                <h3>셔츠&슬랙스 2장 이상 15%</h3>
+                                <strong>39,800원</strong>
+                            </div><!-- .txt end -->
+                        </div><!-- item end -->
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div><!-- .box2 end -->
+        </div><!-- .inner end -->
+    </section><!-- .cont04 end -->
+    <section class="cont05">
+        <div class="inner">
+            <div class="left">
+                <div class="title">
+                    <h3>GIOMAGAZINE</h3>
+                    <h2>New Season, New GIORDANO</h2>
+                </div><!-- .title end -->
+                <!-- Swiper -->
+                <div class="swiper cont05_list">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <figure>
+                                <img src="img/지오다노/CONT05_1.jpg" alt="">
+                            </figure>
+                        </div>
+                        <div class="swiper-slide">
+                            <figure>
+                                <img src="img/지오다노/CONT05_2.jpg" alt="">
+                            </figure>
+                        </div>
+                        <div class="swiper-slide">
+                            <figure>
+                                <img src="img/지오다노/CONT05_3.jpg" alt="">
+                            </figure>
+                        </div>
+                        <div class="swiper-slide">
+                            <figure>
+                                <img src="img/지오다노/CONT05_4.jpg" alt="">
+                            </figure>
+                        </div>
+                        <div class="swiper-slide">
+                            <figure>
+                                <img src="img/지오다노/CONT05_5.jpg" alt="">
+                            </figure>
+                        </div>
+                        <div class="swiper-slide">
+                            <figure>
+                                <img src="img/지오다노/CONT05_6.jpg" alt="">
+                            </figure>
+                        </div>
+                        <div class="swiper-slide">
+                            <figure>
+                                <img src="img/지오다노/CONT05_7.jpg" alt="">
+                            </figure>
+                        </div>
+                        <div class="swiper-slide">
+                            <figure>
+                                <img src="img/지오다노/CONT05_8.jpg" alt="">
+                            </figure>
+                        </div>
+                        <div class="swiper-slide">
+                            <figure>
+                                <img src="img/지오다노/CONT05_9.jpg" alt="">
+                            </figure>
+                        </div>
+                    </div>
+
+                </div><!-- .cont05_list end -->
+                <div class="swiper-scrollbar"></div>
+            </div><!-- .left end -->
+            <div class="right">
+                <div class="youtube">
+                    <div>
+                        <iframe width="560" height="315"
+                            src="https://www.youtube.com/embed/KJ9nMX2lJrA?autoplay=1&mute=1"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
+                    </div>
+                </div><!-- .youtube end -->
+            </div><!-- .right end -->
+        </div><!-- .inner end -->
+    </section><!-- .cont05 end -->
+    <footer>
+        <div class="inner">
+            <div class="left">
+                <h1>
+                    <a href="#"><img src="img/아이콘/logo_ft.png" alt=""></a>
+                </h1>
+                <ul class="footer_nav">
+                    <li><a href="#">이용안내</a></li>
+                    <li><a href="#">이용약관</a></li>
+                    <li><a href="#">개인정보처리방침</a></li>
+                    <li><a href="#">구매안전서비스</a></li>
+                </ul><!-- .footer_nav end -->
+                <div class="info">
+                    <span>㈜지오다노</span>
+                    <span>서울특별시 서초구 강남대로65길 1(서초동) 효봉빌딩</span>
+                    <span>FAX 02-534-2994</span>
+                    <span>대표자 한준석</span>
+                    <span>개인정보보호책임자 김명희 support@giordano.co.kr</span>
+                    <br>
+                    <span>사업자등록번호 116-81-47798</span>
+                    <span>통신판매업신고 2004-서울서초-04585</span>
+                    <span>에스크로서비스 가입 확인</span>
+                </div><!-- .info end -->
+                <p class="copy">
+                    Copyright ⓒ GIORDANO Corp. All Rights Reserved.
+                </p><!-- .copy end -->
+                <ul class="sns">
+                    <li class="instargram">
+                        <a href="#"></a>
+                    </li>
+                    <li class="facebook">
+                        <a href="#"></a>
+                    </li>
+                    <li class="youtube2">
+                        <a href="#"></a>
+                    </li>
+                </ul><!-- .sns end -->
+            </div><!-- .left -->
+            <div class="right">
+                <div class="call">
+                    고객만족센터 <span>080-934-3000</span>
+                </div><!-- .call end -->
+                <div class="footer_nav2">
+                    <ul>
+                        <li><a href="#">1:1문의</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">이벤트</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="#">회사소개</a></li>
+                        <li><a href="#">매장안내</a></li>
+                        <li><a href="#">단체구매</a></li>
+                        <li><a href="#">공지사항</a></li>
+                    </ul>
+                </div><!-- .footer_nav2 end -->
+            </div><!-- .right end -->
+        </div><!-- .inner end -->
+    </footer>
+</body>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+
+</html>
